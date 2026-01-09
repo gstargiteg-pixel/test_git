@@ -1,0 +1,364 @@
+:root {
+    --bg-color: #FFF0EB;
+    /* Soft peach/pink */
+    --sidebar-bg: #FFDDBD;
+    /* Slightly darker peach for sidebar */
+    --accent-color: #FF7043;
+    /* Salmon/Coral for buttons and highlights */
+    --text-primary: #5D4037;
+    /* Dark brownish grey */
+    --text-secondary: #8D6E63;
+    --white: #FFFFFF;
+    --keyboard-base: #FFFFFF;
+    --key-shadow: #E0E0E0;
+    --highlight-blue: #E3F2FD;
+    --highlight-key: #5D4037;
+    /* Dark highlight for active key */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', 'Nunito', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+}
+
+.app-container {
+    display: flex;
+    height: 100%;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 280px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+}
+
+.sidebar-content {
+    margin-top: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+    background: rgba(255, 112, 67, 0.2);
+    padding: 5px 15px;
+    border-radius: 4px;
+}
+
+.underline {
+    width: 50px;
+    height: 3px;
+    background-color: var(--text-primary);
+    margin-bottom: 30px;
+}
+
+.avatar-container {
+    margin-bottom: 40px;
+}
+
+.ghost-avatar {
+    width: 100px;
+    height: 100px;
+    background-color: #9E9E9E;
+    /* Ghost grey background circle */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ghost-body {
+    width: 50px;
+    height: 60px;
+    background: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    position: relative;
+}
+
+.ghost-eyes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.ghost-eyes span {
+    width: 6px;
+    height: 6px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.stats-panel {
+    width: 100%;
+    border: 1px solid var(--text-primary);
+    padding: 0;
+    border-radius: 4px;
+    /* Slight rounding */
+}
+
+.stats-panel h3 {
+    font-size: 0.9rem;
+    padding: 10px;
+    border-bottom: 1px solid var(--text-primary);
+    margin: 0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-item .label {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.brand-footer {
+    margin-top: auto;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    position: relative;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.lang-toggle {
+    background: white;
+    border-radius: 20px;
+    padding: 4px;
+    display: flex;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.lang-toggle button {
+    border: none;
+    background: none;
+    padding: 5px 15px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.lang-toggle button.active {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.game-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 300px;
+}
+
+.target-word-container {
+    background-color: var(--accent-color);
+    padding: 30px 60px;
+    border-radius: 16px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 25px rgba(255, 112, 67, 0.3);
+    margin-bottom: 20px;
+}
+
+.target-word-container .label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.target-word-container .word-display {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.input-underline {
+    width: 200px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin-top: 20px;
+    opacity: 0.5;
+}
+
+#typing-input {
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+}
+
+.background-words span {
+    position: absolute;
+    font-size: 2rem;
+    color: var(--text-primary);
+    opacity: 0.1;
+    pointer-events: none;
+    animation: floatWord 10s linear infinite;
+}
+
+@keyframes floatWord {
+    0% {
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+
+/* Keyboard Section */
+.keyboard-section {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.difficulty-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.difficulty-bar .steps {
+    display: flex;
+    gap: 20px;
+}
+
+.difficulty-bar .steps span {
+    cursor: pointer;
+}
+
+.difficulty-bar .steps span.active {
+    color: var(--accent-color);
+    font-weight: bold;
+    background: #FFECB3;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+.virtual-keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #FAFAFA;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.key {
+    background: white;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    min-width: 45px;
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 0 #E0E0E0;
+    color: #555;
+    position: relative;
+    transition: all 0.1s;
+}
+
+.key .top-char,
+.key .bottom-char {
+    line-height: 1;
+}
+
+.key .bottom-char {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.key.active {
+    background-color: var(--accent-color);
+    /* The dark highlighted key in screenshot */
+    color: white;
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 0 #D84315;
+}
+
+.key.active .bottom-char {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.key.special {
+    font-size: 0.8rem;
+    padding: 0 10px;
+}
+
+/* Finger/Hand Hints could be added here */
